@@ -18,6 +18,20 @@ test('Message Type', () => expect(messageType).toBe('application/x-postmate-v1+j
 
 test('messageId', () => expect(!isNaN(messageId())).toBe(true))
 
+test('messageId adds 1', () => {
+  const result = messageId()
+  expect(result).toBe(1)
+})
+
+test('postmate logs args', () => {
+  Postmate.debug = true
+  console.log = jest.fn()
+  log('a', 'b', 'c')
+  expect(console.log.mock.calls[0][0]).toBe('a')
+  expect(console.log.mock.calls[0][1]).toBe('b')
+  expect(console.log.mock.calls[0][2]).toBe('c')
+})
+
 // test API
 // the tests below test the API generally
 test('Postmate class is ready to rock', () => {
@@ -105,5 +119,3 @@ test('ParentAPI mocking', () => {
   const parentMock = new ParentAPI(info)
   expect(typeof parentMock).toBe('object')
 })
-
-
