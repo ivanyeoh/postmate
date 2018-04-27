@@ -16,7 +16,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.2.2",
     "chai": "^4.1.2",
-    "codecov": "^3.0.0",
+    "codecov": "^3.0.1",
     "connect": "^3.4.1",
     "es-check": "^2.0.0",
     "eslint": "^4.17.0",
