@@ -390,10 +390,8 @@ function () {
           log('Parent: Invalid handshake reply');
         }
 
-        return reject('Failed handshake');
+        return reject("Failed handshake. postmate: " + e.data.postmate);
       };
-
-      _this5.parent.addEventListener('message', reply, false);
 
       var doSend = function doSend() {
         attempt++;
@@ -417,6 +415,9 @@ function () {
 
       var loaded = function loaded() {
         _this5.child = accessContentWindow(_this5.frame);
+
+        _this5.parent.addEventListener('message', reply, false);
+
         doSend();
         responseInterval = setInterval(doSend, 500);
       };
